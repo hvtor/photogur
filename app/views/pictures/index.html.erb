@@ -1,10 +1,12 @@
-<h1> Hello ! </h1>
+<p>326px v.0.1</p>
 
 <%- @pictures.each do |picture| %>
-	<p><img src ="<%=picture%>"width=200/>
-	<p>
-<%end%>
-<p><%= 1 + 1 %></p>
+	<%= picture %>
 
-<p><%= 'hello from ruby'%></p>
-<p><%= 1+1 %></p>
+	<p> <img src="<%= picture [:url] %>"width=300/>
+	<h2> <%= picture[:title] %> </h2>
+	<p> <%= picture[:artist] %> </p>
+		
+	<p></p>
+<%end%>
+
