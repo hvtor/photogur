@@ -3,10 +3,12 @@
 <%- @pictures.each do |picture| %>
 	<%= picture %>
 
-	<p> <img src="<%= picture [:url] %>"width=300/>
+	<p> <img src="<%= picture [:url] %>"/>
 	<h2> <%= picture[:title] %> </h2>
 	<p> <%= picture[:artist] %> </p>
-		
+	<p> <%= picture[:artist] %> </p>
+	<img src="<%=picture.url%>"/>
 	<p></p>
+
 <%end%>
 
