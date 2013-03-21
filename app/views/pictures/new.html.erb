@@ -1,24 +1,27 @@
-
-
-#just plain old HTML here
-
-<!-- <form method="POST" action="/pictures"> -->
-<%= form_tag "/pictures" do %>
-
-
-
-	
-<!-- 	<input type="text" name="artist"/> -->
-	<%= text_field_tag "artist" %>
-
-	<label "title">Title</label>
-	<input type="text" name="title"/>
-
-
-	<label "url">URL</label>
-	<input type="text" name="url"/>
-
-	<input type="submit"/>
+<h1>Add a picture</h1>
+<!--
+  First version, plain html:
+ <form action="/pictures" method="POST"> 
+ -->
+<%= form_for @picture do |f| %>
+  <p>
+    <label>Artist</label><br>
+    <!-- <input type="text" name="artist"/> -->
+    <%= f.text_field "artist" %>
+  </p>
+  <p>
+    <label>Title</label><br>
+    <!-- <input type="text" name="title"/> -->
+    <%= f.text_field "title" %>
+  </p>
+  <p>
+    <label>URL</label><br>
+    <!-- <input type="text" name="url"/> -->
+    <%= f.text_field "url" %>
+  </p>
+  <p>
+    <!-- <input type="submit"/> -->
+    <%= f.submit "Save" %>
+  </p>
 <!-- </form> -->
-
-<%end%>
+<% end %>

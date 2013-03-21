@@ -1,20 +1,28 @@
 Photogur::Application.routes.draw do
 
-  get 'pictures' => 'pictures#index'
+root :to => 'pictures#index'
 
-  
+resources :pictures
 
-  get 'pictures/new' => 'pictures#new'
+# resources :pictures, :except =>[:edit]
 
 
-#Post vs Get 
+# get 'pictures' => 'pictures#index'
 
-  post 'pictures' => 'pictures#create'
+#   get '/' => 'pictures#index'
 
-  get 'pictures/:id/edit' => 'pictures#edit'
-  post 'pictures/:id' => 'pictures#update'
+#   get 'pictures/new' => 'pictures#new'
+
+
+# #Post vs Get 
+
+#   post 'pictures' => 'pictures#create'
+
+#   get 'pictures/:id/edit' => 'pictures#edit'
+#   post 'pictures/:id' => 'pictures#update'
  
-  get 'pictures/:id' => 'pictures#show'
+#   get 'pictures/:id' => 'pictures#show'
+
   #get 'pictures/2' => 'pictures#show2'
   #get 'pictures/3' => 'pictures#show3'
 

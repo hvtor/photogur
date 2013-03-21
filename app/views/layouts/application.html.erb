@@ -8,7 +8,13 @@
 </head>
 <body>
 
-<%= yield %>
+	<div class = "nav">
+		<ul>
+			<li><%= link_to "Home", pictures_path %></li>
+			<li><%= link_to "New", new_picture_path %></li>
+		</ul>
+		<%= yield %>
+	</div>
 
 </body>
 </html>

@@ -14,6 +14,11 @@ class PicturesController < ApplicationController
 		@picture = Picture.find params[:id]
 	end
 
+	def new 
+		@picture = Picture.new
+	end
+
+
 
 	def update
 		@picture = Picture.find params[:id]
@@ -33,7 +38,7 @@ class PicturesController < ApplicationController
 	# #solution 2
 	# @picture.update_attribute(:url, params[:url])
 	# @picture.update_attribute(:title, params[:url])
-	
+
 	end
 
 	def create 
@@ -41,6 +46,8 @@ class PicturesController < ApplicationController
 		@picture.url = params[:url]
 		@picture.title = params[:title]
 		@picture.artist = params[:artist]
+
+		@picture = Picture.new(params[:picture])
 		success = @picture.save
 
 			if success
