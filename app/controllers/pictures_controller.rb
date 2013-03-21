@@ -7,7 +7,33 @@ class PicturesController < ApplicationController
 	end
 
 	def show
-		@picture = @pictures[params[:id].to_i]	
+		@picture = Picture.find params[:id]
+	end
+
+	def edit
+		@picture = Picture.find params[:id]
+	end
+
+
+	def update
+		@picture = Picture.find params[:id]
+		@picture.url = params[:url]
+		@picture.title = params[:title]
+		@picture.artist = params[:artist]
+		success = @picture.save
+
+		if success
+			redirect_to "/pictures/#{@picture.id}"
+		end	
+
+
+	#solution 1 
+	# success = @picture.update_attributes(:title => params[:title], :artist => params [:artist], :url => params[:url])
+
+	# #solution 2
+	# @picture.update_attribute(:url, params[:url])
+	# @picture.update_attribute(:title, params[:url])
+	
 	end
 
 	def create 
@@ -16,7 +42,11 @@ class PicturesController < ApplicationController
 		@picture.title = params[:title]
 		@picture.artist = params[:artist]
 		success = @picture.save
-		redirect_to pictures_path
+
+			if success
+				redirect_to pictures_path
+			end
+
 		# render :text => "Saving a picture. Url: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
 	end
 

@@ -1,14 +1,12 @@
-<p>326px v.0.1</p>
+<% @pictures.each do |picture| %>
 
-<%- @pictures.each do |picture| %>
-	<%= picture %>
+	<div class="banana"><img class ="apple" src="<%= picture.url %>"/><a href="/pictures/<%= picture.id %>/edit">Edit</a></div>
 
-	<p> <img src="<%= picture [:url] %>"/>
-	<h2> <%= picture[:title] %> </h2>
-	<p> <%= picture[:artist] %> </p>
-	<p> <%= picture[:artist] %> </p>
-	<img src="<%=picture.url%>"/>
-	<p></p>
+	<h2> <%= picture.title %> </h2>
+	<h4> <%= picture.artist %> </h4>
+	
+	
+
 
 <%end%>
 
