@@ -29,6 +29,9 @@ class PicturesController < ApplicationController
 
 		if success
 			redirect_to "/pictures/#{@picture.id}"
+		else
+			render :edit
+			<%
 		end	
 
 
@@ -55,6 +58,7 @@ class PicturesController < ApplicationController
 			else
 				flash.now[:error] = "Could not save the picture."
 				render :new
+				#redirect text to a specific field in the new picture page.
 			end
 
 
