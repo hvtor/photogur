@@ -3,11 +3,16 @@
   First version, plain html:
  <form action="/pictures" method="POST"> 
  -->
+
 <%= form_for @picture do |f| %>
   <p>
     <label>Artist</label><br>
     <!-- <input type="text" name="artist"/> -->
     <%= f.text_field "artist" %>
+    
+    <% if @pictures.errors[:artist]%>
+      flash[:error]
+    <% end %>
   </p>
   <p>
     <label>Title</label><br>

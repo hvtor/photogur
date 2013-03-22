@@ -52,7 +52,11 @@ class PicturesController < ApplicationController
 
 			if success
 				redirect_to pictures_path
+			else
+				flash.now[:error] = "Could not save the picture."
+				render :new
 			end
+
 
 		# render :text => "Saving a picture. Url: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
 	end
